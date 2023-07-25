@@ -1,10 +1,19 @@
+import { Routes,Route } from "react-router-dom";
+import Home from "./pages/Home"
+import Layout from './components/Layout'
+import UserLogin from './pages/UserLogin'
+import ChatRoom from './pages/ChatRoom'
+
 function App() {
+
   return (
-    <>
-      <h1 className="text-3xl text-red-500 text-center font-bold underline">
-        Hello world!
-      </h1>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="login" element={<UserLogin />} />
+        <Route path='dashboard' element={<ChatRoom />} />
+      </Route>
+    </Routes>
   );
 }
 
