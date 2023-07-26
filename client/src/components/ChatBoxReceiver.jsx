@@ -16,7 +16,7 @@ const ChatBoxReceiver = ({ avatar, user, message, date }) => {
         }
       />
       <div className="px-3 py-3 text-white bg-blue-500 rounded-lg w-1/4 mt-4 ">
-        <p className="text-xl font-bold capitalize">{user}</p>
+        <p className="text-xl text-black font-bold capitalize">{user}</p>
         <p>{message}</p>
         <p className="text-sm mt-2 text-right">{date}</p>
       </div>
