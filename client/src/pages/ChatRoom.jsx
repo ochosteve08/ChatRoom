@@ -29,17 +29,22 @@ const ChatRoom = () => {
        window.removeEventListener("storage", handleLoginUpdate);
      };
    }, []);
-  console.log(user);
+ 
   useEffect(() => {
-    
-    socketio.on("chat", (chats) => {
-      setChats(chats);
-    },[socketio]);
+    socketio.on("chat", (newChats) => {
+      // setChats(chats);
+
+       if (!Array.isArray(newChats)) {
+         newChats = [newChats];
+       }
+       setChats([...chats, ...newChats]);
+    });
+
     // Cleanup logic
     return () => {
       socketio.disconnect();
     };
-  });
+  }, [chats, socketio]);
 
   const sendChatToSocket = (chat) => {
     socketio.emit("chat", chat);
@@ -48,7 +53,7 @@ const ChatRoom = () => {
   const addMessage = (message) => {
     const newChat = { message, user, avatar, date: new Date() };
     setChats([...chats, newChat]);
-    console.log(newChat);
+   
     sendChatToSocket(newChat);
   };
 
