@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+::placeholder {
+  /* Placeholder Color */
+  color: inherit;
+  /* Placeholder Font Size */
+  font-size: 0.75rem; /* Tailwind's font size for 'text-sm' */
+  /* Placeholder Opacity */
+  opacity: 0.5; /* 50% opacity */
+}
+
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
