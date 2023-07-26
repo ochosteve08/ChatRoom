@@ -14,7 +14,7 @@ const InputText = ({addMessage}) => {
     <div>
       <form
         onSubmit={handleMessage}
-        className="flex justify-evenly items-center mt-12"
+        className="flex justify-evenly items-center my-12"
       >
         <textarea
           onChange={(event) => setMessage(event.target.value)}
