@@ -1,5 +1,6 @@
 import ChatBoxReceiver from "../components/ChatBoxReceiver"
 import ChatBoxSender from "../components/ChatBoxSender";
+import InputText from "../components/InputText";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
         date={"12:20pm"}
         avatar="https://picsum.photos/seed/picsum/200/300"
       />
+      <InputText/>
     </div>
   );
 }
