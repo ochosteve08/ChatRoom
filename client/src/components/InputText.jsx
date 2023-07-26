@@ -24,9 +24,11 @@ const InputText = ({addMessage}) => {
           placeholder="write something..."
           className="w-2/3 h-20 rounded-lg p-3 text-lg transition duration-150 border border-gray-400 focus:outline-blue-400 focus:text-gray-600"
         />
-       {message && <button className="w-1/6 text-white flex justify-center items-center space-x-4 text-xl h-12 rounded-lg bg-blue-900">
-          <p className="font-semibold">Enter</p> <FiSend />
-        </button>}
+        {message && (
+          <button className="w-1/6 text-white flex justify-center items-center space-x-4 text-xl h-12 rounded-lg  bg-blue-700  hover:bg-blue-900 focus:bg-blue-900 transition duration-200 ease-in-out shadow-md hover:shadow-lg">
+            <p className="font-semibold">Enter</p> <FiSend />
+          </button>
+        )}
       </form>
     </div>
   );
