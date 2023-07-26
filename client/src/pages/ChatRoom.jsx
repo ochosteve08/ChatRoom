@@ -13,31 +13,29 @@ const ChatRoom = () => {
   const [avatar, setAvatar] = useState(localStorage.getItem("avatar"));
   const navigate = useNavigate();
 
-   useEffect(() => {
-     const handleLoginUpdate = () => {
-       setUser(localStorage.getItem("user"));
-       setAvatar(localStorage.getItem("avatar"));
-     };
+  useEffect(() => {
+    const handleLoginUpdate = () => {
+      setUser(localStorage.getItem("user"));
+      setAvatar(localStorage.getItem("avatar"));
+    };
 
-     window.addEventListener("storage", (e) => {
-       if (e.key === "loginUpdate") {
-         handleLoginUpdate();
-       }
-     });
+    window.addEventListener("storage", (e) => {
+      if (e.key === "loginUpdate") {
+        handleLoginUpdate();
+      }
+    });
 
-     return () => {
-       window.removeEventListener("storage", handleLoginUpdate);
-     };
-   }, []);
- 
+    return () => {
+      window.removeEventListener("storage", handleLoginUpdate);
+    };
+  }, []);
+
   useEffect(() => {
     socketio.on("chat", (newChats) => {
-      // setChats(chats);
-
-       if (!Array.isArray(newChats)) {
-         newChats = [newChats];
-       }
-       setChats([...chats, ...newChats]);
+      if (!Array.isArray(newChats)) {
+        newChats = [newChats];
+      }
+      setChats([...chats, ...newChats]);
     });
 
     // Cleanup logic
@@ -53,10 +51,9 @@ const ChatRoom = () => {
   const addMessage = (message) => {
     const newChat = { message, user, avatar, date: new Date() };
     setChats([...chats, newChat]);
-   
+
     sendChatToSocket(newChat);
   };
-
 
   const logout = () => {
     localStorage.removeItem("user");
