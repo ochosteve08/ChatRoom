@@ -1,34 +1,34 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const http = require('http');
-const Server = require('socket.io').Server
-const server = http.createServer(app)
-const port = 5000
+const http = require("http");
+const Server = require("socket.io").Server;
+const server = http.createServer(app);
+const port = 5000;
 
-
-
-const io = new Server(server,{
-    cors:{
-        origin: "*"
-    }
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
 });
+
 
 io.on("connection", (socket) => {
-  console.log(`socket ${socket.id} connected`);
+  console.log(`socket ${socket.id} connected now`);
 
-  // a chat event was received from the client
+  
+  console.log("we are connected");
+
   socket.on("chat", (chat) => {
-    // the chat is sent to other channels connected to the server
     io.emit("chat", chat);
+    console.log("server:", chat);
+  });
+  socket.on("disconnect", () => {
+    console.log("we are disconnected");
   });
 
-  // upon disconnection
-  socket.on("disconnect", (reason) => {
-    console.log(`socket ${socket.id} disconnected due to ${reason}`);
-  });
+
+
 });
-
-
 
 server.listen(port, () => {
   console.log(`listening at http://localhost:${port}`);

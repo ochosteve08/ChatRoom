@@ -4,7 +4,9 @@ import InputText from "../components/InputText";
 import ChatBoxReceiver from "../components/ChatBoxReceiver";
 import ChatBoxSender from "../components/ChatBoxSender";
 import UserLogin from "./UserLogin";
-import { useNavigate } from "react-router-dom";
+import { CommentOutlined } from "@ant-design/icons";
+import logo from "../assets/chatapp-header.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const ChatRoom = () => {
   let socketio = socketIOClient("http://localhost:5000");
@@ -54,7 +56,7 @@ const ChatRoom = () => {
 
     sendChatToSocket(newChat);
   };
-
+console.log(chats);
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("avatar");
@@ -62,7 +64,7 @@ const ChatRoom = () => {
     setAvatar("");
     navigate("/login");
   };
-  console.log(chats);
+
 
   function chatsList() {
     return chats.map((chat, index) => {
@@ -94,35 +96,37 @@ const ChatRoom = () => {
   }
 
   return (
-    <section>
-      {user ? (
-        <div>
-          <div
+    <section className="px-3">
+      <div className="flex justify-between items-center">
+        <div className="text-center my-10 flex  items-center ">
+          <CommentOutlined className="text-blue-400 mx-5 text-4xl" />
+          <Link to={"/"}>
+            <img src={logo} alt="header-logo" />
+          </Link>
+        </div>
+        <div className="flex justify-between items-center space-x-12">
+          <div className="flex items-center space-x-3">
+            <h3 className="font-semibold">Hello</h3>
+            <h2 className="capitalize font-bold italic">{user}</h2>
+          </div>
+          <button
+            className="text-white bg-red-600 hover:bg-red-400 w-16 py-1 rounded-md text-center"
+            onClick={() => logout()}
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexDirection: "row",
-              padding: "10px",
+              // width: "10%",
+              // height: 35,
+              fontWeight: "bold",
+              // borderRadius: 10,
+              border: "none",
             }}
           >
-            <h4>Welcome : {user}</h4>
-            <button
-              onClick={() => logout()}
-              style={{
-                color: "white",
-                cursor: "pointer",
-                backgroundColor: "red",
-                width: "10%",
-                height: 35,
-                fontWeight: "bold",
-                borderRadius: 10,
-                border: "none",
-              }}
-            >
-              Logout
-            </button>
-          </div>
+            Logout
+          </button>
+        </div>
+      </div>
+
+      {user ? (
+        <div>
           {chatsList()}
           <InputText addMessage={addMessage} />
         </div>

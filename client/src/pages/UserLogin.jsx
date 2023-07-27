@@ -11,7 +11,7 @@ import {
 const UserLogin = () => {
   const [aUser, setAUser] = useState('');
   const navigate = useNavigate()
-console.log('user:',aUser);
+
   const handleSetUser = () => {
    if (!aUser) return;
       localStorage.setItem("user", aUser);
