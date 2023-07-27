@@ -3,6 +3,9 @@ import { Avatar, Image } from "antd";
 
 
 const ChatBoxReceiver = ({ avatar, user, message, date }) => {
+
+
+  
   return (
     <div className="flex justify-start flex-row space-x-2 mb-3 ">
       <Avatar
