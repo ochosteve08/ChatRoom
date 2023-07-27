@@ -1,13 +1,14 @@
+import Header from "../components/Header";
 
-import {Link} from 'react-router-dom'
+
 
 
 const Home = () => {
   return (
     <>
-      <Link to={'/login'}>
-        <button>Login</button>
-      </Link>
+      <div className="   bg-gradient-to-r from-blue-500 to-cyan-500">
+        <Header />
+      </div>
     </>
   );
 }
