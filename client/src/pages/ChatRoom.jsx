@@ -56,7 +56,7 @@ const ChatRoom = () => {
 
     sendChatToSocket(newChat);
   };
-console.log(chats);
+  console.log(chats);
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("avatar");
@@ -64,7 +64,6 @@ console.log(chats);
     setAvatar("");
     navigate("/login");
   };
-
 
   function chatsList() {
     return chats.map((chat, index) => {
@@ -96,7 +95,7 @@ console.log(chats);
   }
 
   return (
-    <section className="px-3">
+    <section className="px-6">
       <div className="flex justify-between items-center">
         <div className="text-center my-10 flex  items-center ">
           <CommentOutlined className="text-blue-400 mx-5 text-4xl" />
@@ -104,21 +103,14 @@ console.log(chats);
             <img src={logo} alt="header-logo" />
           </Link>
         </div>
-        <div className="flex justify-between items-center space-x-12">
+        <div className="flex justify-around items-center space-x-12">
           <div className="flex items-center space-x-3">
             <h3 className="font-semibold">Hello</h3>
             <h2 className="capitalize font-bold italic">{user}</h2>
           </div>
           <button
-            className="text-white bg-red-600 hover:bg-red-400 w-16 py-1 rounded-md text-center"
+            className="text-white bg-red-600 font-bold hover:bg-red-400 w-16 py-1  rounded-md text-center"
             onClick={() => logout()}
-            style={{
-              // width: "10%",
-              // height: 35,
-              fontWeight: "bold",
-              // borderRadius: 10,
-              border: "none",
-            }}
           >
             Logout
           </button>
