@@ -11,7 +11,7 @@ const Home = () => {
       <div className=" mx-auto text-white  bg-gradient-to-r from-blue-500 to-blue-600">
         <Header />
 
-        <div className="flex  max-w-8xl flex-col lg:flex-row mt-6 justify around items-center space-y-12 md:space-y-0 px-3 md:px-10   mx-auto">
+        <div className="flex  max-w-8xl flex-col lg:flex-row mt-6 justify around items-start space-y-12 md:space-y-0 px-3 md:px-10   mx-auto">
           <div className="w-full md:w-1/2 flex flex-col ">
             <h1 className="font-semibold text-3xl text-center lg:text-left  md:text-5xl lg:text-8xl leading-normal mb-10 ">
               Have your best chat.
@@ -32,7 +32,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex  space-x-56">
+          <div className="w-full md:w-1/2 flex   space-x-60">
             <div className=" ">
               <img
                 className="w-24 h-24 z-3 absolute  "
@@ -45,7 +45,7 @@ const Home = () => {
                 alt="hero-logo"
               />
             </div>
-            <div className= "mt-60">
+            <div className= "mt-28">
               <img
                 className="w-48 h-60 absolute z-10  mt-6"
                 src={hero2}
@@ -57,6 +57,7 @@ const Home = () => {
                 alt="dot-logo"
               />
             </div>
+           
           </div>
         </div>
       </div>
