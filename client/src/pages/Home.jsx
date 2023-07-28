@@ -8,19 +8,18 @@ import dots from "../assets/dots.svg"
 const Home = () => {
   return (
     <>
-      <div className=" min-h-screen pb-48 h-auto text-white  bg-gradient-to-r from-blue-500 to-blue-600">
+      <div className=" min-h-screen pb-48 h-auto mx-auto text-white  bg-gradient-to-r from-blue-500 to-blue-600">
         <Header />
-        
-        <div className="flex  max-w-6xl flex-col md:flex-row mt-24 space-y-12   mx-auto">
-         
-          <div className="w-3/4 md:w-1/2 flex flex-col ">
+
+        <div className="flex  max-w-6xl flex-col md:flex-row mt-6 md:12 space-y-12 px-3 md:px-10   mx-auto">
+          <div className="w-full md:w-1/2 flex flex-col ">
             <h1 className="font-semibold text-3xl text-center md:text-left md:text-8xl leading-normal mb-10 ">
               Have your best chat.
             </h1>
             <p className="text-center md:text-left italic text-xl mb-10">
               Fast, easy & unlimited group chat services.
             </p>
-            <div className=" flex flex-row space-x-3  md:space-y-0 md:space-x-10">
+            <div className=" flex flex-row items-center justify-center md:justify-start space-x-3  md:space-y-0 md:space-x-10">
               <Link to={"/login"}>
                 <button className="text-white bg-green-400 font-bold px-4 hover:bg-green-600 w-36 py-2  rounded-full text-center transition duration-200 ease-in-out shadow-md hover:shadow-lg">
                   Try it for free
@@ -47,7 +46,11 @@ const Home = () => {
               />
             </div>
             <div className="  mt-60 -h-auto">
-              <img className="w-48 absolute z-10  mt-6" src={hero2} alt="hero-logo" />
+              <img
+                className="w-48 absolute z-10  mt-6"
+                src={hero2}
+                alt="hero-logo"
+              />
               <img
                 className="w-24 h-24 absolute z-2 ml-32  "
                 src={dots}
