@@ -7,11 +7,11 @@ import dots from "../assets/dots.svg"
 
 const Home = () => {
   return (
-    <>
-      <div className=" mx-auto text-white  bg-gradient-to-r from-blue-500 to-blue-600">
+    <section>
+      <div className=" h-screen mx-auto text-white  bg-gradient-to-r from-blue-500 to-blue-600">
         <Header />
 
-        <div className="flex  max-w-8xl flex-col lg:flex-row mt-6 justify around items-start space-y-12 md:space-y-0 px-3 md:px-10   mx-auto">
+        <div className="flex  max-w-8xl flex-col md:flex-row mt-6 justify around items-start space-y-12 md:space-y-0 px-3 md:px-10   mx-auto">
           <div className="w-full md:w-1/2 flex flex-col ">
             <h1 className="font-semibold text-3xl text-center lg:text-left  md:text-5xl lg:text-8xl leading-normal mb-10 ">
               Have your best chat.
@@ -32,36 +32,36 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex   space-x-60">
+          <div className="w-full md:w-1/2 sm:ml-24 md:ml-0 flex md:space-x-48  lg:space-x-72">
             <div className=" ">
               <img
-                className="w-24 h-24 z-3 absolute  "
+                className="w-16 sm:w-24 h-24 z-3 absolute  "
                 src={dots}
                 alt="dot-logo"
               />
               <img
-                className="w-48 h-60 absolute z-10 mt-6 ml-8"
+                className="w-32 sm:w-40 md:w-32  lg:w-48 lg:h-60 absolute z-10 mt-6 ml-8"
                 src={hero1}
                 alt="hero-logo"
               />
             </div>
-            <div className= "mt-28">
+            <div className="ml-44 md:mt-28">
               <img
-                className="w-48 h-60 absolute z-10  mt-6"
+                className="w-32 sm:w-40 md:w-32 lg:w-48 lg:h-60 absolute z-10  mt-6"
                 src={hero2}
                 alt="hero-logo"
               />
               <img
-                className="w-24 h-24 absolute z-2 ml-32  "
+                className="w-16 sm:w-24 h-24 absolute z-2 lg:ml-32  ml-24 sm:ml-16  "
                 src={dots}
                 alt="dot-logo"
               />
             </div>
-           
           </div>
         </div>
       </div>
-    </>
+      
+    </section>
   );
 }
 

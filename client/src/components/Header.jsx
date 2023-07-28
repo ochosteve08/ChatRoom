@@ -13,10 +13,10 @@ const Header = () => {
           </Link>
         </div>
         <div className="hidden md:flex justify-around items-center text-lg space-x-12">
-          <h3 className="font-semibold cursor-pointer hover:bg-blue-400 hover:py-2 px-4 hover:px-4 transition duration-200 ease-in-out">
+          <h3 className="font-semibold  rounded-full cursor-pointer hover:bg-blue-400 hover:py-2 px-4 hover:px-4 transition duration-200 ease-in-out">
             Product
           </h3>
-          <h2 className="capitalize font-semibold cursor-pointer hover:bg-blue-400 hover:py-2  px-4 hover:px-4 hover:w-full transition duration-200 ease-in">
+          <h2 className="capitalize  rounded-full font-semibold cursor-pointer hover:bg-blue-400 hover:py-2  px-4 hover:px-4 hover:w-full transition duration-200 ease-in">
             services
           </h2>
 

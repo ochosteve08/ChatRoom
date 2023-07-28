@@ -38,7 +38,7 @@ localStorage.setItem("loginUpdate", Date.now());
         className="flex justify-center items-center space-x-4"
       >
         <input
-          className=" w-1/4 h-5 rounded-lg p-4 text-lg transition duration-150 border border-gray-400 focus:outline-blue-400 focus:text-gray-600  placeholder:text-sm"
+          className=" sm:w-1/4 h-5 rounded-lg p-4 text-lg transition duration-150 border border-gray-400 focus:outline-blue-400 focus:text-gray-600  placeholder:text-sm"
           type="text"
           placeholder="John doe"
           value={aUser}
@@ -47,9 +47,9 @@ localStorage.setItem("loginUpdate", Date.now());
 
         <button
           onClick={handleSetUser}
-          className="w-1/6 text-white text-xl h-9 font-semibold border rounded-lg bg-blue-500  hover:bg-blue-700 focus:bg-blue-900 transition duration-200 ease-in-out shadow-md hover:shadow-lg"
+          className="w-1/4 md:w-1/6 text-white text-xl h-9 font-semibold border rounded-lg  bg-blue-500   hover:bg-blue-700 focus:bg-blue-900 transition duration-200 ease-in-out shadow-md hover:shadow-lg"
         >
-          Login
+          Log In
         </button>
       </div>
     </>
