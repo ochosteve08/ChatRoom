@@ -13,11 +13,11 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex justify-around items-center text-lg space-x-12">
-          <h3 className="font-semibold">Product</h3>
-          <h2 className="capitalize font-semibold">services</h2>
+          <h3 className="font-semibold cursor-pointer">Product</h3>
+          <h2 className="capitalize font-semibold cursor-pointer">services</h2>
 
           <Link to={"/login"}>
-            <button className="text-white bg-blue-400 font-bold hover:bg-blue-500 w-20 py-1  rounded-full text-center">
+            <button className="text-white bg-blue-500 font-bold   py-2  rounded-full text-center transition duration-200 ease-in-out shadow-md hover:shadow-lg    border border-white hover:bg-blue-600 w-36 px-4 ">
               Log In
             </button>
           </Link>
