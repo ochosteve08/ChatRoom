@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="bg-blue-500 shadow-lg border-b sticky top-0 z-100 bg-opacity-100">
+    <nav className="bg-blue-500 shadow-lg border-b fixed w-full top-0 z-50 bg-opacity-100">
       <div className="flex justify-between px-3 md:px-10 text-white  items-center  ">
-        <div className="text-center my-10 flex  items-center ">
+        <div className="text-center py-10 flex  items-center ">
           <CommentOutlined className=" mx-5 text-4xl md:text-6xl" />
           <Link to={"/"}>
             <img className="w-48" src={logo} alt="header-logo" />

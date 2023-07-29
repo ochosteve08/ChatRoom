@@ -11,7 +11,7 @@ const Home = () => {
       <div className=" h-screen  mx-auto text-white  bg-gradient-to-r from-blue-500 to-blue-600">
         <Header />
 
-        <div className="flex  max-w-8xl flex-col md:flex-row mt-6 justify around items-start space-y-12 md:space-y-0 px-3 md:px-10   mx-auto">
+        <div className="flex  max-w-8xl flex-col md:flex-row mt-36 pt-12 justify around items-start space-y-12 md:space-y-0 px-3 md:px-10   mx-auto">
           <div className="w-full md:w-1/2 flex flex-col ">
             <h1 className="font-semibold text-3xl text-center lg:text-left  md:text-5xl lg:text-8xl leading-normal mb-10 ">
               Have your best chat.
