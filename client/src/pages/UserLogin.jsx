@@ -3,10 +3,14 @@ import { useState } from "react";
 import _ from "lodash";
 import { CommentOutlined } from "@ant-design/icons";
 import logo from "../assets/chatapp-header.png";
+import banner from '../assets/meeting.svg'
+import dots from '../assets/dots.svg'
+
 import {
   Link,
    useNavigate
 } from "react-router-dom";
+
 
 const UserLogin = () => {
   const [aUser, setAUser] = useState('');
@@ -33,10 +37,7 @@ localStorage.setItem("loginUpdate", Date.now());
           <img src={logo} alt="header-logo" />
         </Link>
       </div>
-      <div
-       
-        className="flex justify-center items-center space-x-4"
-      >
+      <div className="flex justify-center items-center space-x-4">
         <input
           className=" sm:w-1/4 h-5 rounded-lg p-4 text-lg transition duration-150 border border-gray-400 focus:outline-blue-400 focus:text-gray-600  placeholder:text-sm"
           type="text"
@@ -51,6 +52,19 @@ localStorage.setItem("loginUpdate", Date.now());
         >
           Log In
         </button>
+      </div>
+      <div className="max-w-4xl relative mx-auto mt-12">
+        <img
+          className="w-24 h-24 -top-3 md:w-48 md:h-48 absolute   "
+          src={dots}
+          alt="dot-logo"
+        />
+        <img className=" z-10 absolute " src={banner} alt="hero-logo" />
+        <img
+          className="w-24 h-24  md:w-48 md:h-48 absolute   "
+          src={dots}
+          alt="dot-logo"
+        />
       </div>
     </>
   );
