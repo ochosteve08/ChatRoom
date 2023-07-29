@@ -6,7 +6,7 @@ import ChatBoxSender from "../components/ChatBoxSender";
 import UserLogin from "./UserLogin";
 import { CommentOutlined } from "@ant-design/icons";
 import logo from "../assets/chatapp-header.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const ChatRoom = () => {
   let socketio = socketIOClient("http://localhost:5000");
@@ -93,32 +93,34 @@ const ChatRoom = () => {
       );
     });
   }
+  if (!user){
+      return <Navigate to="/login" />;
+  }
 
   return (
     <section className="px-6">
-      <div className="flex justify-between items-center">
-        <div className="text-center my-10 flex  items-center ">
-          <CommentOutlined className="text-blue-400 mx-5 text-4xl" />
-          <Link to={"/"}>
-            <img src={logo} alt="header-logo" />
-          </Link>
-        </div>
-        <div className="flex justify-around items-center space-x-12">
-          <div className="flex items-center space-x-3">
-            <h3 className="font-semibold">Hello</h3>
-            <h2 className="capitalize font-bold italic">{user}</h2>
-          </div>
-          <button
-            className="text-white bg-red-600 font-bold hover:bg-red-400 w-16 py-1  rounded-md text-center"
-            onClick={() => logout()}
-          >
-            Logout
-          </button>
-        </div>
-      </div>
-
       {user ? (
         <div>
+          <div className="flex justify-between items-center">
+            <div className="text-center my-10 flex  items-center ">
+              <CommentOutlined className="text-blue-400 mx-5 text-4xl" />
+              <Link to={"/"}>
+                <img src={logo} alt="header-logo" />
+              </Link>
+            </div>
+            <div className="flex justify-around items-center space-x-12">
+              <div className="flex items-center space-x-3">
+                <h3 className="font-semibold">Hello</h3>
+                <h2 className="capitalize font-bold italic">{user}</h2>
+              </div>
+              <button
+                className="text-white bg-red-600 font-bold hover:bg-red-400 w-16 py-1  rounded-md text-center"
+                onClick={() => logout()}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
           {chatsList()}
           <InputText addMessage={addMessage} />
         </div>
