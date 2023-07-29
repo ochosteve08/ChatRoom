@@ -16,7 +16,7 @@ io.on("connection", (socket) => {
   console.log(`socket ${socket.id} connected now`);
 
   
-  console.log("we are connected");
+  console.log(`we are connected to port: ${port}`);
 
   socket.on("chat", (chat) => {
     io.emit("chat", chat);
