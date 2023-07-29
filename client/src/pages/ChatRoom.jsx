@@ -7,6 +7,14 @@ import UserLogin from "./UserLogin";
 import { CommentOutlined } from "@ant-design/icons";
 import logo from "../assets/chatapp-header.png";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { db } from "../Firebase";
+import { addDoc, collection } from "firebase/firestore";
+import {
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp,
+} from "firebase/firestore";
 
 const ChatRoom = () => {
   let socketio = socketIOClient("http://localhost:5000");
@@ -46,17 +54,48 @@ const ChatRoom = () => {
     };
   }, [chats, socketio]);
 
+  const addMessageToFirestore = async (message) => {
+    try {
+      await addDoc(collection(db, "chats"), {
+        ...message,
+        date: serverTimestamp(),
+      });
+      console.log("Message added successfully");
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
+  useEffect(() => {
+    const q = query(collection(db, "chats"), orderBy("date"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let loadedChats = [];
+      querySnapshot.forEach((doc) => {
+        let chat = doc.data();
+        chat.date = chat.date?.toDate();
+        loadedChats.push(chat);
+      });
+      setChats(loadedChats);
+      console.log(loadedChats);
+    });
+
+    // Cleanup
+    return () => unsubscribe();
+  }, []);
+
   const sendChatToSocket = (chat) => {
     socketio.emit("chat", chat);
   };
 
   const addMessage = (message) => {
     const newChat = { message, user, avatar, date: new Date() };
-    setChats([...chats, newChat]);
+    const updatedChat = [...chats, newChat];
+    setChats(updatedChat);
 
-    sendChatToSocket(newChat);
+    sendChatToSocket(updatedChat);
+    addMessageToFirestore(newChat);
   };
-  console.log(chats);
+
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("avatar");
@@ -93,8 +132,8 @@ const ChatRoom = () => {
       );
     });
   }
-  if (!user){
-      return <Navigate to="/login" />;
+  if (!user) {
+    return <Navigate to="/login" />;
   }
 
   return (
